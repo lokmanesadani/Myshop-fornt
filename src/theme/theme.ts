@@ -1,16 +1,24 @@
 import { createTheme } from "@mui/material";
-import "typeface-montserrat";
+import "typeface-cairo";
 export default createTheme({
   palette: {
     primary: {
-      main: "#165D84",
+      main: "#006FBA",
+      dark: "#003964",
     },
     secondary: {
       main: "#FFB71C",
+      dark: "#FF7F00",
+    },
+    error: {
+      main: "#FF5050",
     },
   },
   typography: {
-    fontFamily: "Montserrat",
+    fontFamily: "Cairo",
+    subtitle1: {
+      fontSize: "14px",
+    },
   },
 });
 const colors = [
@@ -20,5 +28,5 @@ const colors = [
   "#ffffff",
   "#8baec2",
   "#5186a3",
-  "#165d84",
+  "#006FBA",
 ];

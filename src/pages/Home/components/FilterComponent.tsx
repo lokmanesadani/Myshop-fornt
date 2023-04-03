@@ -1,7 +1,7 @@
 import { brands, CPU, GPU } from "constants/FilterList";
 import Filter from "pages/Home/components/BrandsFilter";
 import { FilterBox, StyledFilterTitle } from "pages/Home/styles";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 
 const items = [
   {

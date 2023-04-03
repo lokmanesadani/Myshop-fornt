@@ -4,7 +4,6 @@ export const StyledTypo = styled(Typography)(() => ({
   fontSize: "12px",
   fontWeight: "bold",
   color: "#000",
-  paddingBottom: "px",
 }));
 
 export const StyledBox = styled(Box)(() => ({
@@ -28,7 +27,8 @@ export const StyledCheckbox = styled(Checkbox)(({ theme }) => ({
 
 export const StyledTypography = styled(Typography)(() => ({
   fontSize: "11px",
-  color: "#000",
+  color: "#222",
+  fontWeight: 500,
 }));
 
 export const StyledShowMore = styled(Typography)(() => ({
@@ -57,5 +57,54 @@ export const StyledFilterTitle = styled(Typography)(({ theme }) => ({
   fontSize: "14px",
   fontWeight: "bold",
   marginTop: "4px",
-  color: "rgba(0, 0, 0, 0.3)",
+  color: "#006FBA",
+}));
+
+// -------------- Card styles ----------------
+export const CardBox = styled(Box)(() => ({
+  backgroundColor: "#fff",
+  borderRadius: "5px",
+  padding: "13px",
+  boxShadow: "rgba(149, 157, 165, 0.6) 0px 0px 2px;",
+  display: "flex",
+  flexDirection: "column",
+  transition: "all 0.1s ease-in-out",
+  "&:hover": {
+    boxShadow: "rgba(149, 157, 165, 0.7) 0px 0px 7px;",
+    transform: "scale(1.01)",
+  },
+}));
+
+export const CardStyledImage = styled("img")(() => ({
+  height: "150px",
+  width: "95%",
+  margin: "auto",
+  objectFit: "contain",
+  objectPosition: "center",
+  "@media (max-width: 600px)": {
+    height: "100px",
+    paddingBottom: "5px",
+  },
+  "@media (max-width: 900px)": {
+    height: "130px",
+    paddingBottom: "5px",
+  },
+}));
+
+export const StyledCardTitle = styled(Typography)(({ theme }) => ({
+  fontSize: "16px",
+  fontWeight: 600,
+  color: theme.palette.primary.main,
+  marginTop: "5px",
+}));
+
+export const StyledCardText = styled(Typography)(({ theme }) => ({
+  marginTop: "5px",
+  fontSize: "12px",
+  fontWeight: 600,
+  display: "-webkit-box",
+  overflow: "hidden",
+  WebkitBoxOrient: "vertical",
+  WebkitLineClamp: 2,
+  color: "primary.dark",
 }));

@@ -5,9 +5,13 @@ const StyledBox = styled(Box)(() => ({
   width: "100%",
   flexGrow: 1,
   display: "flex",
-  flexDirection: "row",
+  flexDirection: "column",
   paddingTop: "10px",
   justifyContent: "space-between",
+  // if width is less than 1200px, then flex-direction is column
+  "@media (min-width: 600px)": {
+    flexDirection: "row",
+  },
 }));
 const Home = () => {
   return (

@@ -16,6 +16,8 @@ type FilterProps = {
   setFilter: any;
 };
 
+
+
 const Filter = ({ title, filterList, setFilter }: FilterProps) => {
   const [show, setShow] = React.useState(false);
   const [checked, setChecked] = React.useState<string[]>([]);
