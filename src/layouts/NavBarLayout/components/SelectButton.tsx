@@ -5,22 +5,23 @@ const StyledSelect = styled(Select)(() => ({
   position: "absolute",
   width: "150px",
   height: "100%",
-  backgroundColor: "#e9e9e9",
+  backgroundColor: "#f0f0f0",
   zIndex: 1,
-  borderRadius: "7px",
+  borderRadius: "10px",
   transition: "all 0.3s ease",
   "&:hover": {
-    backgroundColor: "#dadada",
+    backgroundColor: "#e5e5e5",
   },
   "& .MuiSelect-select": {
-    borderRadius: "50px",
     padding: "0",
-    height: "48px",
+    height: "40px",
     display: "flex",
     alignItems: "center",
     paddingLeft: "20px",
     paddingRight: "0px !important",
+    fontSize: "14px",
   },
+
   "& .MuiOutlinedInput-notchedOutline": {
     border: "none",
   },
@@ -57,7 +58,13 @@ const SelectButton = () => {
       inputProps={{ "aria-label": "Without label" }}
     >
       {selectItems.map((item, index) => (
-        <MenuItem key={index} value={item}>
+        <MenuItem
+          sx={{
+            fontSize: "14px",
+          }}
+          key={index}
+          value={item}
+        >
           <em>{item}</em>
         </MenuItem>
       ))}

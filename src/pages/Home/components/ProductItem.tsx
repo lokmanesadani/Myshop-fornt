@@ -57,7 +57,7 @@ const ProductItem = ({ item }: { item: Item }) => {
       </StyledCardText>
       <Box
         sx={{
-          marginTop: "9px",
+          marginTop: "13px",
           display: "flex",
           alignItems: "center",
           flexDirection: "row",

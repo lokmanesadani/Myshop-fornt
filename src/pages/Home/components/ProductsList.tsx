@@ -1,11 +1,7 @@
 import Grid from "@mui/material/Unstable_Grid2";
-import { Box, Rating, styled, Typography } from "@mui/material";
 import { useQuery } from "@tanstack/react-query";
-
-import { formatDate } from "utils/dateFormat";
 import { getProducts } from "api/Products";
 import ProductItem from "pages/Home/components/ProductItem";
-import { useEffect, useState } from "react";
 import useWindowWidth from "hooks/useWindowWidth";
 
 type Item = {

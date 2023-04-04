@@ -12,6 +12,7 @@ const StyledSearchBar = styled(Box)(() => ({
 }));
 
 const StyledTextField = styled(TextField)(() => ({
+  backgroundColor: "f4f4f4",
   "& .MuiFilledInput-underline": {
     "&:before": {
       borderBottom: "none",
@@ -20,14 +21,20 @@ const StyledTextField = styled(TextField)(() => ({
       borderBottom: "none",
     },
   },
+  "& .MuiInputBase-input": {
+    fontSize: "14px",
+    backgroundColor: "transparent",
+  },
+
   "& .MuiFilledInput-input": {
     padding: "0 20px 0 160px",
     height: "100%",
   },
   "& .MuiFilledInput-root": {
-    borderRadius: "5px",
+    borderRadius: "10px",
     padding: "0",
-    height: "48px",
+    height: "40px",
+    backgroundColor: "#f5f5f5",
     "&:hover": {
       "&:not(.Mui-disabled):before": {
         borderBottom: "none",
