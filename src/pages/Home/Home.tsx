@@ -8,6 +8,7 @@ const StyledBox = styled(Box)(() => ({
   flexDirection: "column",
   paddingTop: "10px",
   justifyContent: "space-between",
+  gap: "20px",
   // if width is less than 1200px, then flex-direction is column
   "@media (min-width: 600px)": {
     flexDirection: "row",

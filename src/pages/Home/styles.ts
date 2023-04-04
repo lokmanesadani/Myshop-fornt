@@ -67,6 +67,7 @@ export const CardBox = styled(Box)(() => ({
   padding: "13px",
   boxShadow: "rgba(149, 157, 165, 0.6) 0px 0px 2px;",
   display: "flex",
+  overflow: "hidden",
   flexDirection: "column",
   transition: "all 0.1s ease-in-out",
   "&:hover": {
@@ -95,12 +96,11 @@ export const StyledCardTitle = styled(Typography)(({ theme }) => ({
   fontSize: "16px",
   fontWeight: 600,
   color: theme.palette.primary.main,
-  marginTop: "5px",
 }));
 
 export const StyledCardText = styled(Typography)(({ theme }) => ({
   marginTop: "5px",
-  fontSize: "12px",
+  fontSize: "13px",
   fontWeight: 600,
   display: "-webkit-box",
   overflow: "hidden",

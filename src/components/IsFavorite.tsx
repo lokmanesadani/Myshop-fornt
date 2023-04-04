@@ -7,6 +7,10 @@ const IsFavorite = ({ isFav }: { isFav: boolean }) => {
   const [isFavorite, setIsFavorite] = useState(isFav);
   return (
     <Box
+      sx={{
+        cursor: "pointer",
+        display: "flex",
+      }}
       onClick={() => {
         setIsFavorite(!isFavorite);
       }}
@@ -16,6 +20,7 @@ const IsFavorite = ({ isFav }: { isFav: boolean }) => {
           sx={{
             color: "error.main",
             fontSize: "20px",
+            lineHeight: "20px",
           }}
         />
       ) : (
@@ -23,6 +28,7 @@ const IsFavorite = ({ isFav }: { isFav: boolean }) => {
           sx={{
             color: "error.main",
             fontSize: "20px",
+            lineHeight: "20px",
           }}
         />
       )}

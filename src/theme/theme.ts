@@ -19,6 +19,9 @@ export default createTheme({
     subtitle1: {
       fontSize: "14px",
     },
+    button: {
+      textTransform: "none",
+    },
   },
 });
 const colors = [
