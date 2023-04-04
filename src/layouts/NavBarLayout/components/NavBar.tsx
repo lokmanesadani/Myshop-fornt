@@ -1,15 +1,8 @@
-import {
-  Avatar,
-  Badge,
-  Box,
-  Button,
-  TextField,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Avatar, Badge, Box, Typography, styled } from "@mui/material";
 import CartIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchBar from "layouts/NavBarLayout/components/SearchBar";
 import NotificationsIcon from "@mui/icons-material/NotificationsActiveOutlined";
+
 const StyledNavContainer = styled(Box)(() => ({
   height: "70px",
   borderBottom: "1px solid #00000018",
@@ -31,7 +24,19 @@ const StyledNavBar = styled(Box)(() => ({
     paddingLeft: "10px",
   },
 }));
-
+const StyledBadge = styled(Badge)(() => ({
+  "& .MuiBadge-badge": {
+    padding: "0px",
+    top: "1px",
+    display: "flex",
+    fontSize: "11px",
+    alignItems: "center",
+    justifyContent: "center",
+    height: "16px",
+    width: "16px",
+    minWidth: "16px",
+  },
+}));
 const NavBar = () => {
   return (
     <StyledNavContainer>
@@ -55,6 +60,14 @@ const NavBar = () => {
             }}
           />
         </Badge>
+        <StyledBadge badgeContent={4} color="error">
+          <NotificationsIcon
+            sx={{
+              fontSize: "20px",
+              color: "primary.dark",
+            }}
+          />
+        </StyledBadge>
         <Badge variant="dot" color="error">
           <CartIcon
             sx={{
@@ -63,14 +76,7 @@ const NavBar = () => {
             }}
           />
         </Badge>
-        <Badge badgeContent={4} color="error">
-          <NotificationsIcon
-            sx={{
-              fontSize: "20px",
-              color: "primary.dark",
-            }}
-          />
-        </Badge>
+
         <Avatar
           sx={{
             width: "30px",

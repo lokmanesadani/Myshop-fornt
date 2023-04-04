@@ -58,10 +58,11 @@ const ProductsList = () => {
       height={"fit-content"}
       justifyContent={"center"}
       container
-      spacing={3}
+      rowSpacing={3}
+      columnSpacing={3}
     >
       {data.data.map((item: Item) => (
-        <Grid maxWidth={300} height={300} key={item.id} sm={6} md={4} lg={3}>
+        <Grid maxWidth={300} key={item.id} sm={6} md={4} lg={3}>
           <ProductItem item={item} />
         </Grid>
       ))}

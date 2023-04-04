@@ -3,7 +3,7 @@ import { useState } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 const StyledSelect = styled(Select)(() => ({
   position: "absolute",
-  width: "150px",
+  width: "135px",
   height: "100%",
   backgroundColor: "#f0f0f0",
   zIndex: 1,
@@ -39,7 +39,7 @@ const selectItems = [
 
 const OpenedIcon = styled(KeyboardArrowDownIcon)(() => ({
   fontSize: "20px",
-  marginRight: "10px",
+  marginRight: "5px",
   color: "#00000099",
 }));
 

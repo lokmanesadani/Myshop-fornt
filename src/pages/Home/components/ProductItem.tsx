@@ -6,10 +6,7 @@ import {
   StyledCardTitle,
 } from "pages/Home/styles";
 import { formatDate } from "utils/dateFormat";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import StarIcon from "@mui/icons-material/Star";
-import { useState } from "react";
 import IsFavorite from "components/IsFavorite";
 type Item = {
   id: number;

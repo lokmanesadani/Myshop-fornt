@@ -27,7 +27,7 @@ const StyledTextField = styled(TextField)(() => ({
   },
 
   "& .MuiFilledInput-input": {
-    padding: "0 20px 0 160px",
+    padding: "0 20px 0 150px",
     height: "100%",
   },
   "& .MuiFilledInput-root": {
@@ -67,7 +67,15 @@ const SearchBar = () => {
         InputProps={{
           endAdornment: (
             <StyledButton>
-              <SearchIcon sx={{ fontSize: "25px", color: "#00000055" }} />
+              <SearchIcon
+                sx={{
+                  fontSize: "25px",
+                  color: "#00000055",
+                  "&:hover": {
+                    color: "#00000099",
+                  },
+                }}
+              />
             </StyledButton>
           ),
         }}

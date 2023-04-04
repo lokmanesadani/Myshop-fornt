@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material";
 import "typeface-cairo";
+import "typeface-lora";
 export default createTheme({
   palette: {
     primary: {
@@ -18,6 +19,9 @@ export default createTheme({
     fontFamily: "Cairo",
     subtitle1: {
       fontSize: "14px",
+    },
+    subtitle2: {
+      fontFamily: "Lora",
     },
     button: {
       textTransform: "none",

@@ -21,6 +21,7 @@
     "react-router-dom": "^6.9.0",
     "typeface-cairo": "^1.1.13",
     "typeface-exo-2": "^1.1.13",
+    "typeface-lora": "^1.1.13",
     "typeface-montserrat": "^1.1.13"
   },
   "devDependencies": {
