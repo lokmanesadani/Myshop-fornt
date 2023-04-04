@@ -20,7 +20,7 @@ const StyledNavBar = styled(Box)(() => ({
   height: "100%",
   width: "100%",
   display: "flex",
-  gap: "20px",
+  gap: "35px",
   alignItems: "center",
   maxWidth: "1400px",
   margin: "0 auto",
@@ -50,7 +50,7 @@ const NavBar = () => {
         <Badge variant="dot" color="secondary">
           <CartIcon
             sx={{
-              fontSize: "25px",
+              fontSize: "20px",
               color: "primary.dark",
             }}
           />
@@ -58,7 +58,7 @@ const NavBar = () => {
         <Badge variant="dot" color="error">
           <CartIcon
             sx={{
-              fontSize: "25px",
+              fontSize: "20px",
               color: "primary.dark",
             }}
           />
@@ -66,12 +66,21 @@ const NavBar = () => {
         <Badge badgeContent={4} color="error">
           <NotificationsIcon
             sx={{
-              fontSize: "25px",
+              fontSize: "20px",
               color: "primary.dark",
             }}
           />
         </Badge>
-        <Avatar alt="Remy Sharp">L</Avatar>
+        <Avatar
+          sx={{
+            width: "30px",
+            height: "30px",
+            fontSize: "15px",
+          }}
+          alt="Remy Sharp"
+        >
+          L
+        </Avatar>
       </StyledNavBar>
     </StyledNavContainer>
   );

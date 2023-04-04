@@ -7,7 +7,7 @@ const StyledSelect = styled(Select)(() => ({
   height: "100%",
   backgroundColor: "#e9e9e9",
   zIndex: 1,
-  borderRadius: "50px",
+  borderRadius: "7px",
   transition: "all 0.3s ease",
   "&:hover": {
     backgroundColor: "#dadada",

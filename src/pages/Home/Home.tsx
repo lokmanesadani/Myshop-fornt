@@ -3,11 +3,9 @@ import FilterComponent from "pages/Home/components/FilterComponent";
 import ProductsList from "pages/Home/components/ProductsList";
 const StyledBox = styled(Box)(() => ({
   width: "100%",
-  flexGrow: 1,
   display: "flex",
   flexDirection: "column",
   paddingTop: "10px",
-  justifyContent: "space-between",
   gap: "20px",
   // if width is less than 1200px, then flex-direction is column
   "@media (min-width: 600px)": {

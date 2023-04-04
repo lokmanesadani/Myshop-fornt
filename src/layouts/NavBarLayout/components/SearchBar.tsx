@@ -25,7 +25,7 @@ const StyledTextField = styled(TextField)(() => ({
     height: "100%",
   },
   "& .MuiFilledInput-root": {
-    borderRadius: "50px",
+    borderRadius: "5px",
     padding: "0",
     height: "48px",
     "&:hover": {
@@ -38,14 +38,14 @@ const StyledTextField = styled(TextField)(() => ({
 
 const StyledButton = styled(Button)(({ theme }) => ({
   height: "100%",
-  width: "50px",
+  width: "10px",
   padding: "5px 10px",
-  backgroundColor: theme.palette.secondary.main,
-  borderRadius: "50px",
   gap: "6px",
+  borderRadius: "5px",
   color: "#fff",
+  backgroundColor: "transparent",
   "&:hover": {
-    backgroundColor: theme.palette.secondary.dark,
+    backgroundColor: "transparent",
   },
 }));
 const SearchBar = () => {
@@ -60,7 +60,7 @@ const SearchBar = () => {
         InputProps={{
           endAdornment: (
             <StyledButton>
-              <SearchIcon sx={{ fontSize: "25px" }} />
+              <SearchIcon sx={{ fontSize: "25px", color: "#00000055" }} />
             </StyledButton>
           ),
         }}
