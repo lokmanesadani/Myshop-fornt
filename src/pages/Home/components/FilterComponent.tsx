@@ -37,11 +37,7 @@ const reducer = (state: any, action: any) => {
 
 const FilterComponent = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  console.log(state);
-  useEffect(() => {
-    dispatch({ type: "Brands", payload: ["Apple"] });
-    console.log(state);
-  }, []);
+
   return (
     <FilterBox>
       <StyledFilterTitle>Filter by</StyledFilterTitle>

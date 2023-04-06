@@ -34,11 +34,12 @@ const StyledTextField = styled(TextField)(() => ({
     borderRadius: "10px",
     padding: "0",
     height: "40px",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "#f6f6f6",
     "&:hover": {
       "&:not(.Mui-disabled):before": {
         borderBottom: "none",
       },
+      backgroundColor: "#f3f3f3",
     },
   },
 }));
@@ -72,7 +73,7 @@ const SearchBar = () => {
                   fontSize: "25px",
                   color: "#00000055",
                   "&:hover": {
-                    color: "#00000099",
+                    color: "#00000088",
                   },
                 }}
               />

@@ -99,12 +99,46 @@ export const StyledCardTitle = styled(Typography)(({ theme }) => ({
 }));
 
 export const StyledCardText = styled(Typography)(({ theme }) => ({
-  marginTop: "5px",
-  fontSize: "13px",
+  marginTop: "8px",
+  fontSize: "13.5px",
   fontWeight: 600,
   display: "-webkit-box",
   overflow: "hidden",
   WebkitBoxOrient: "vertical",
   WebkitLineClamp: 2,
-  color: "primary.dark",
+  color: theme.palette.primary.dark,
+  minHeight: "41px",
+}));
+
+export const CardTitleBox = styled(Box)(() => ({
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "center",
+  flexDirection: "row",
+  marginTop: "10px",
+}));
+export const CardPrice = styled(Typography)(({ theme }) => ({
+  fontSize: "18px",
+  lineHeight: "19px",
+  fontWeight: "bold",
+  color: theme.palette.secondary.dark,
+}));
+export const CardFooterBox = styled(Box)(() => ({
+  marginTop: "15px",
+  display: "flex",
+  alignItems: "center",
+  flexDirection: "row",
+}));
+
+export const CardRating = styled(Typography)(({ theme }) => ({
+  fontSize: "15px",
+  lineHeight: "15px",
+  fontWeight: "bold",
+  color: theme.palette.secondary.main,
+}));
+export const CardDate = styled(Typography)(({ theme }) => ({
+  fontSize: "13px",
+  fontWeight: 600,
+  color: "#999",
+  margin: "0 auto",
 }));

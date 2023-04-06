@@ -1,6 +1,7 @@
 import { createTheme } from "@mui/material";
 import "typeface-cairo";
 import "typeface-lora";
+import "typeface-poppins";
 export default createTheme({
   palette: {
     primary: {

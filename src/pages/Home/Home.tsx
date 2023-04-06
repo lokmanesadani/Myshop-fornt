@@ -1,4 +1,6 @@
-import { Box, styled } from "@mui/material";
+import { Box, Button, Divider, Typography, styled } from "@mui/material";
+import GoogleLoginButton from "components/GoogleLoginButton";
+import RegisterForm from "layouts/NavBarLayout/components/RegisterForm";
 import FilterComponent from "pages/Home/components/FilterComponent";
 import ProductsList from "pages/Home/components/ProductsList";
 const StyledBox = styled(Box)(() => ({
@@ -12,12 +14,56 @@ const StyledBox = styled(Box)(() => ({
     flexDirection: "row",
   },
 }));
+
 const Home = () => {
   return (
-    <StyledBox>
-      <FilterComponent />
-      <ProductsList />
-    </StyledBox>
+    <>
+      <StyledBox>
+        <FilterComponent />
+        <ProductsList />
+      </StyledBox>
+      <Box
+        sx={{
+          minWidth: "200px",
+          maxWidth: "350px",
+          margin: "0 auto",
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "#fff",
+          padding: "20px",
+          gap: "20px",
+          boxShadow: "rgba(149, 157, 165, 0.6) 0px 0px 3px;",
+          borderRadius: "10px",
+        }}
+      >
+        <RegisterForm />
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            gap: "10px",
+            alignItems: "center",
+          }}
+        >
+          <Divider sx={{ flex: 1 }} />
+          <Typography
+            sx={{
+              fontSize: "13px",
+              fontWeight: 600,
+              lineHeight: "19px",
+              color: "#999",
+            }}
+          >
+            or continue with email
+          </Typography>
+          <Divider sx={{ flex: 1 }} />
+        </Box>
+        <Box sx={{ display: "flex", flexDirection: "row", gap: "20px" }}>
+          <GoogleLoginButton />
+          <GoogleLoginButton />
+        </Box>
+      </Box>
+    </>
   );
 };
 

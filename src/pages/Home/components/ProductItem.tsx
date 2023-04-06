@@ -1,7 +1,19 @@
-import { Box, Button, Divider, Rating, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Divider,
+  Rating,
+  Typography,
+  styled,
+} from "@mui/material";
 import {
   CardBox,
+  CardDate,
+  CardFooterBox,
+  CardPrice,
+  CardRating,
   CardStyledImage,
+  CardTitleBox,
   StyledCardText,
   StyledCardTitle,
 } from "pages/Home/styles";
@@ -23,66 +35,28 @@ const ProductItem = ({ item }: { item: Item }) => {
   return (
     <CardBox>
       <CardStyledImage src={`${import.meta.env.VITE_API_URL}/` + item.image} />
-      <Divider sx={{ marginTop: "7px" }} />
-      <Box
-        sx={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          flexDirection: "row",
-          marginTop: "8px",
-        }}
-      >
+      <Divider sx={{ marginTop: "10px" }} />
+      <CardTitleBox>
         <StyledCardTitle>{item.name}</StyledCardTitle>
-        <Typography
-          sx={{
-            fontSize: "17px",
-            lineHeight: "17px",
-            fontWeight: "bold",
-            color: "secondary.dark",
-          }}
-        >
-          {item.price}$
-        </Typography>
-      </Box>
+        <CardPrice>{item.price}$</CardPrice>
+      </CardTitleBox>
 
-      <StyledCardText>
-        {item.description} Lorem ipsum dolor sit amet consectetur, adipisicing
-        elit. Ipsam, cupiditate! Ipsam nemo, laudantium possimus qui nam
-        laboriosam error eius veniam accusantium asperiores magnam quis facere
-        quae temporibus commodi repellendus saepe?
-      </StyledCardText>
-      <Box
-        sx={{
-          marginTop: "13px",
-          display: "flex",
-          alignItems: "center",
-          flexDirection: "row",
-        }}
-      >
+      <StyledCardText>{item.description}</StyledCardText>
+      <CardFooterBox>
         <StarIcon sx={{ color: "secondary.main", fontSize: "20px" }} />
+        <CardRating>{item.rating}</CardRating>
         <Typography
           sx={{
-            fontSize: "15px",
-            fontWeight: "bold",
-            color: "secondary.main",
-            lineHeight: "15px",
-          }}
-        >
-          {item.rating}
-        </Typography>
-        <Typography
-          sx={{
-            fontSize: "13px",
-            fontWeight: 600,
+            fontSize: "11px",
             color: "#999",
-            margin: "0 auto",
+            lineHeight: "11px",
           }}
         >
-          {formatDate(item.date)}
+          ({10})
         </Typography>
+        <CardDate>{formatDate(item.date)}</CardDate>
         <IsFavorite isFav={true} />
-      </Box>
+      </CardFooterBox>
     </CardBox>
   );
 };
