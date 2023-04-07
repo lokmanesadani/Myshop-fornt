@@ -1,23 +1,98 @@
-import { TextField, styled } from "@mui/material";
+import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { TextField, Typography, styled } from "@mui/material";
+import { useRef, useState } from "react";
 
-const StyledInput = styled(TextField)(() => ({
+const StyledInput = styled(TextField)(({ theme }) => ({
   "& .MuiBaseInput-root": {
     fontSize: "10px !important",
     backgroundColor: "transparent",
   },
+  "& label.Mui-focused": {
+    color: theme.palette.primary.main,
+  },
+  "& .MuiInput-underline:after": {
+    borderBottomColor: theme.palette.primary.main,
+  },
+
+  "& .MuiOutlinedInput-root": {
+    "&:hover fieldset": {
+      border: "1px solid " + theme.palette.primary.main,
+    },
+    "&.Mui-focused fieldset": {
+      borderColor: theme.palette.primary.main,
+    },
+  },
 }));
 
-const FormInput = () => {
+const StyledIcon = styled(FontAwesomeIcon)(() => ({
+  fontSize: "18px",
+  color: "#00000077",
+  cursor: "pointer",
+}));
+const FormInput = ({
+  label,
+  type,
+  icon,
+}: {
+  label: string;
+  type: string;
+  icon: any;
+}) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+  const [showPassword, setShowPassword] = useState(false);
+  const [isFocused, setIsFocused] = useState(false);
+  const handleClick = () => {
+    setShowPassword(!showPassword);
+  };
+  const handleShowPassword = () => {
+    if (type === "password") {
+      return showPassword ? "text" : "password";
+    }
+    return type;
+  };
+
+  const handleShowIcon = () => {
+    if (type === "password") {
+      return showPassword ? faEyeSlash : icon;
+    }
+    return icon;
+  };
+
   return (
     <StyledInput
-      sx={{
-        "& .MuiInputBase-root": {
-          height: "40px",
+      inputRef={inputRef}
+      size="small"
+      color="primary"
+      InputProps={{
+        sx: { fontSize: 15, height: "50px" },
+        endAdornment: (
+          <StyledIcon
+            sx={{
+              color: isFocused ? "primary.main" : "#00000077",
+              width: "30px",
+              height: "20px",
+            }}
+            onClick={() => {
+              inputRef.current && inputRef.current.focus();
+              label === "Password" && handleClick();
+            }}
+            icon={handleShowIcon()}
+          />
+        ),
+      }}
+      InputLabelProps={{
+        sx: {
+          fontSize: 14,
+          padding: 0,
+          top: "6px",
+          "&.MuiInputLabel-shrink": { top: "0", fontSize: 15 },
         },
       }}
-      InputProps={{ style: { fontSize: 14 } }}
-      InputLabelProps={{ style: { fontSize: 14 } }}
-      label="Username"
+      onFocus={() => setIsFocused(true)}
+      onBlur={() => setIsFocused(false)}
+      label={label}
+      type={handleShowPassword()}
     />
   );
 };
