@@ -15,6 +15,9 @@ export default createTheme({
     error: {
       main: "#FF5050",
     },
+    success: {
+      main: "#00C853",
+    },
   },
   typography: {
     fontFamily: "Cairo",

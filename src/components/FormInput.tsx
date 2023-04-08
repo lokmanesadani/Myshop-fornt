@@ -142,17 +142,21 @@ const FormInput = ({
                 justifyContent: "flex-start",
                 marginBottom: "4px",
                 gap: "5px",
+                paddingLeft: "10px",
+                color: item.regex.test(password)
+                  ? "success.main"
+                  : "error.main",
               }}
             >
               {" "}
               <FontAwesomeIcon
                 icon={item.regex.test(password) ? faCheckCircle : faTimesCircle}
-                color={item.regex.test(password) ? "#00bb00" : "#dd0000"}
+                color={"inherit"}
               />
               <Typography
                 sx={{
                   fontSize: "12.5px",
-                  color: item.regex.test(password) ? "#00bb00" : "#dd0000",
+                  color: "inherit",
                 }}
               >
                 {item.message}

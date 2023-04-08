@@ -71,19 +71,19 @@ const items = [
 
 const RegisterForm = ({ setRegister }: { setRegister: any }) => {
   const schema = yup.object().shape({
-    firstName: yup.string().required(),
-    lastName: yup.string().required(),
+    firstName: yup.string().required("First name is required"),
+    lastName: yup.string().required("Last name is required"),
 
     email: yup
       .string()
       .email()
-      .required()
+      .required("Email is required")
       .matches(/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/, {
         message: "Invalid email address",
       }),
     password: yup
       .string()
-      .required()
+      .required("Password is required")
       .matches(/(?=.*[a-zA-Z])/, {
         message: " ",
       })

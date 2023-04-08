@@ -47,8 +47,10 @@ const LoginForm = ({ setRegister }: { setRegister: any }) => {
   const dispatch = useDispatch();
   const axios = useAxios();
   const schema = yup.object().shape({
-    email: yup.string().required(),
-    password: yup.string().required(),
+    email: yup
+      .string()
+      .required("Please enter your email address or phone number"),
+    password: yup.string().required("Please enter your password"),
   });
   const user = useSelector((state: RootState) => state.auth.user);
   const [errorMessage, setErrorMessage] = React.useState("");
