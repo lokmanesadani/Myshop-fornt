@@ -21,6 +21,25 @@ import {
 } from "layouts/NavBarLayout/components/LoginForm/styles";
 import { useState } from "react";
 import useAxios from "hooks/useAxios";
+const passwordValidator = [
+  {
+    regex: /(?=.*[a-zA-Z])/,
+    message: "Password must contain at least one letter",
+  },
+  {
+    regex: /(?=.*[0-9])/,
+    message: "Password must contain at least one number",
+  },
+  {
+    // regex with all special characters
+    regex: /(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?])/,
+    message: "Password must contain at least one special character",
+  },
+  {
+    regex: /(?=.{8,})/,
+    message: "Password must contain at least 8 characters",
+  },
+];
 const items = [
   {
     label: "First Name",
@@ -46,8 +65,10 @@ const items = [
     register: "password",
     type: "password",
     icon: faEye,
+    validator: passwordValidator,
   },
 ];
+
 const RegisterForm = ({ setRegister }: { setRegister: any }) => {
   const schema = yup.object().shape({
     firstName: yup.string().required(),
@@ -63,18 +84,24 @@ const RegisterForm = ({ setRegister }: { setRegister: any }) => {
     password: yup
       .string()
       .required()
-      .matches(
-        // contains at least one digit and one letter and is longer than 8 characters
-        /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-        {
-          message:
-            "Password must contain at least 8 characters, one letter and one number",
-        }
-      ),
+      .matches(/(?=.*[a-zA-Z])/, {
+        message: " ",
+      })
+      .matches(/(?=.*[0-9])/, {
+        message: " ",
+      })
+      .matches(/(?=.*[!@#$%^&*])/, {
+        message: " ",
+      })
+      .matches(/(?=.{8,})/, {
+        message: " ",
+      }),
   });
+
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),

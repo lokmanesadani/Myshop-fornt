@@ -1,8 +1,8 @@
-import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
+import { faTimesCircle, faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Box, TextField, Typography, styled } from "@mui/material";
 import { useRef, useState } from "react";
-
+import { faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 const StyledInput = styled(TextField)(({ theme }) => ({
   "& .MuiBaseInput-root": {
     fontSize: "10px !important",
@@ -41,12 +41,23 @@ type FormInputType = {
   icon?: any;
   reg: any;
   err: any;
+  validator?: any[];
   rest?: any;
 };
-const FormInput = ({ label, type, icon, reg, err, ...rest }: FormInputType) => {
+const FormInput = ({
+  label,
+  type,
+  icon,
+  reg,
+  err,
+  validator,
+  ...rest
+}: FormInputType) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [showPassword, setShowPassword] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
+  const [password, setPassword] = useState("");
+
   const handleClick = () => {
     setShowPassword(!showPassword);
   };
@@ -70,6 +81,10 @@ const FormInput = ({ label, type, icon, reg, err, ...rest }: FormInputType) => {
         fullWidth
         {...rest}
         {...reg}
+        onChange={(e) => {
+          reg.onChange(e);
+          validator && setPassword(e.target.value);
+        }}
         error={!!err}
         inputRef={inputRef}
         size="small"
@@ -117,6 +132,35 @@ const FormInput = ({ label, type, icon, reg, err, ...rest }: FormInputType) => {
           </Typography>
         )}
       </Box>
+      {validator && (
+        <Box sx={{ minHeight: "20px", marginBottom: "10px" }}>
+          {validator.map((item) => (
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-start",
+                marginBottom: "4px",
+                gap: "5px",
+              }}
+            >
+              {" "}
+              <FontAwesomeIcon
+                icon={item.regex.test(password) ? faCheckCircle : faTimesCircle}
+                color={item.regex.test(password) ? "#00bb00" : "#dd0000"}
+              />
+              <Typography
+                sx={{
+                  fontSize: "12.5px",
+                  color: item.regex.test(password) ? "#00bb00" : "#dd0000",
+                }}
+              >
+                {item.message}
+              </Typography>
+            </Box>
+          ))}
+        </Box>
+      )}
     </Box>
   );
 };

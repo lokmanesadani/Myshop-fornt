@@ -65,7 +65,6 @@ const LoginForm = ({ setRegister }: { setRegister: any }) => {
         withCredentials: true,
       });
       dispatch(login(res.data.user));
-      console.log(res.data);
     } catch (err: any) {
       setErrorMessage(err?.response?.data?.message);
     }
