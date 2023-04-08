@@ -1,14 +1,4 @@
-import {
-  Box,
-  Button,
-  Checkbox,
-  Divider,
-  Typography,
-  styled,
-} from "@mui/material";
-import FacebookLoginButton from "components/FacebookLoginButton";
-import GoogleLoginButton from "components/GoogleLoginButton";
-import RegisterForm from "layouts/NavBarLayout/components/RegisterForm";
+import { Box, styled } from "@mui/material";
 import FilterComponent from "pages/Home/components/FilterComponent";
 import ProductsList from "pages/Home/components/ProductsList";
 const StyledBox = styled(Box)(() => ({
