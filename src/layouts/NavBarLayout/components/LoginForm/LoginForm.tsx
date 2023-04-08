@@ -61,7 +61,7 @@ const LoginForm = ({ setRegister }: { setRegister: any }) => {
   });
   const onSubmit = async (data: any) => {
     try {
-      const res = await axios.post("http://localhost:3000/auth/login", data, {
+      const res = await axios.post("/auth/login", data, {
         withCredentials: true,
       });
       dispatch(login(res.data.user));
