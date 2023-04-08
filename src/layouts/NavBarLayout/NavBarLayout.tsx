@@ -1,5 +1,5 @@
 import { Box, styled } from "@mui/material";
-import NavBar from "layouts/NavBarLayout/components/NavBar";
+import NavBar from "layouts/NavBarLayout/components/NavBar/NavBar";
 import { Outlet } from "react-router-dom";
 const Container = styled(Box)(() => ({
   maxWidth: "1400px",

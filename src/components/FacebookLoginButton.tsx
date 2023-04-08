@@ -8,12 +8,13 @@ const StyledButton = styled(Button)(() => ({
   width: "100%",
   backgroundColor: "#fff",
   color: "#00000099",
-  boxShadow: "rgba(149, 157, 165, 0.9) 0px 0px 3px;",
+  border: "1px solid #00000022",
   borderRadius: "5px",
   display: "flex",
   alignItems: "center",
   gap: "12px",
-  padding: "15px",
+  padding: "5px",
+  height: "50px",
   fontFamily: "Poppins",
 }));
 
@@ -36,7 +37,7 @@ const FacebookLoginButton = () => {
   });
   return (
     <StyledButton onClick={() => login()}>
-      <FacebookIcon width="25" height="25" />
+      <FacebookIcon width="20" height="20" />
       Facebook
     </StyledButton>
   );

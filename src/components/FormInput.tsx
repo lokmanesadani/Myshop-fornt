@@ -1,6 +1,6 @@
 import { faEyeSlash } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { TextField, Typography, styled } from "@mui/material";
+import { Box, TextField, Typography, styled } from "@mui/material";
 import { useRef, useState } from "react";
 
 const StyledInput = styled(TextField)(({ theme }) => ({
@@ -23,6 +23,11 @@ const StyledInput = styled(TextField)(({ theme }) => ({
       borderColor: theme.palette.primary.main,
     },
   },
+  "& .MuiOutlinedInput-input": {
+    "&:-webkit-autofill": {
+      WebkitBoxShadow: "0 0 0 100px #fff inset",
+    },
+  },
 }));
 
 const StyledIcon = styled(FontAwesomeIcon)(() => ({
@@ -30,15 +35,15 @@ const StyledIcon = styled(FontAwesomeIcon)(() => ({
   color: "#00000077",
   cursor: "pointer",
 }));
-const FormInput = ({
-  label,
-  type,
-  icon,
-}: {
+type FormInputType = {
   label: string;
   type: string;
-  icon: any;
-}) => {
+  icon?: any;
+  reg: any;
+  err: any;
+  rest?: any;
+};
+const FormInput = ({ label, type, icon, reg, err, ...rest }: FormInputType) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [showPassword, setShowPassword] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
@@ -60,40 +65,59 @@ const FormInput = ({
   };
 
   return (
-    <StyledInput
-      inputRef={inputRef}
-      size="small"
-      color="primary"
-      InputProps={{
-        sx: { fontSize: 15, height: "50px" },
-        endAdornment: (
-          <StyledIcon
+    <Box sx={{ width: "100%" }}>
+      <StyledInput
+        fullWidth
+        {...rest}
+        {...reg}
+        error={!!err}
+        inputRef={inputRef}
+        size="small"
+        color="primary"
+        InputProps={{
+          sx: { fontSize: 15, height: "50px" },
+          endAdornment: (
+            <StyledIcon
+              sx={{
+                color: isFocused ? "primary.main" : "#00000077",
+                width: "28px",
+                height: "18px",
+              }}
+              onClick={() => {
+                inputRef.current && inputRef.current.focus();
+                label === "Password" && handleClick();
+              }}
+              icon={handleShowIcon()}
+            />
+          ),
+        }}
+        InputLabelProps={{
+          sx: {
+            fontSize: 14,
+            padding: 0,
+            top: "6px",
+            "&.MuiInputLabel-shrink": { top: "0", fontSize: 15 },
+          },
+        }}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+        label={label}
+        type={handleShowPassword()}
+      />
+      <Box sx={{ minHeight: "20px", marginBottom: "10px" }}>
+        {err && (
+          <Typography
             sx={{
-              color: isFocused ? "primary.main" : "#00000077",
-              width: "30px",
-              height: "20px",
+              fontSize: "11px",
             }}
-            onClick={() => {
-              inputRef.current && inputRef.current.focus();
-              label === "Password" && handleClick();
-            }}
-            icon={handleShowIcon()}
-          />
-        ),
-      }}
-      InputLabelProps={{
-        sx: {
-          fontSize: 14,
-          padding: 0,
-          top: "6px",
-          "&.MuiInputLabel-shrink": { top: "0", fontSize: 15 },
-        },
-      }}
-      onFocus={() => setIsFocused(true)}
-      onBlur={() => setIsFocused(false)}
-      label={label}
-      type={handleShowPassword()}
-    />
+            color="error"
+            variant="caption"
+          >
+            {err.message}
+          </Typography>
+        )}
+      </Box>
+    </Box>
   );
 };
 
